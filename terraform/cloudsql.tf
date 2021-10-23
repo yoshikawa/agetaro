@@ -1,5 +1,5 @@
-resource "google_sql_database_instance" "agetarou-sql" {
-  name             = "agetarou-sql"
+resource "google_sql_database_instance" "agetarou-mysql" {
+  name             = "agetarou-mysql"
   database_version = var.database_version
   region           = var.gcp_region
 
