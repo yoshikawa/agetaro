@@ -23,6 +23,23 @@ resource "google_cloud_run_service" "default" {
           name  = "PROJECT_ID"
           value = var.gcp_project
         }
+        env {
+          name  = "DB_USER"
+          value = "agetarou-kun"
+        }
+        env {
+          name  = "DB_PASSWORD"
+          value = "tuyoi-kimochi"
+        }
+        env {
+          name  = "DB_NAME"
+          value = "agetaro"
+        }
+
+        env {
+          name  = "DB_INSTANCE"
+          value = google_sql_database_instance.agetarou-mysql.connection_name
+        }
       }
       service_account_name = google_service_account.run_invoker.email
       timeout_seconds      = 600
