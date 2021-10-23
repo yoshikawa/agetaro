@@ -1,5 +1,5 @@
 ## GCS for terraform.tfstate  ##
-resource "google_storage_bucket" "agetaro-tfstate-bucket" {
+resource "google_storage_bucket" "agetarou-tfstate-bucket" {
   name          = "terraform-tfstate-${var.gcp_project}"
   location      = var.gcp_region
   storage_class = "REGIONAL"
