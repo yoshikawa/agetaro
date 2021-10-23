@@ -37,7 +37,7 @@ resource "google_cloud_run_service" "default" {
         }
 
         env {
-          name = "DB_INSTANCE"
+          name  = "DB_INSTANCE"
           value = google_sql_database_instance.agetarou-mysql.connection_name
         }
       }
