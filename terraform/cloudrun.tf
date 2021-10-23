@@ -9,7 +9,7 @@ resource "google_cloud_run_service" "default" {
   template {
     metadata {
       annotations = {
-        "run.googleapis.com/cloudsql-instances" = google_sql_database_instance.agetaro-sql.connection_name
+        "run.googleapis.com/cloudsql-instances" = google_sql_database_instance.agetarou-sql.connection_name
       }
       labels = {
         environment = "dev"
