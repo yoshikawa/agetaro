@@ -29,9 +29,9 @@ func GetGormConn() (*gorm.DB, error) {
 func GetCloudSQLConn() (*gorm.DB, error) {
 	socketDir, isSet := os.LookupEnv("DB_SOCKET_DIR")
 	if !isSet {
-		socketDir = "/cloudsql"
+		socketDir = "cloudsql"
 	}
 
-	return gorm.Open("mysql", fmt.Sprintf("%s:%s@unix(/%s/%s)/%s?parseTime=true",
-		os.Getenv("DB_USER"), os.Getenv("DB_PASSWORD"), socketDir, os.Getenv("DB_INSTANCE"), os.Getenv("DB_PROTOCOL")))
+	return gorm.Open("mysql", fmt.Sprintf("%s:%s@unix(/%s/%s)/%s",
+		os.Getenv("DB_USER"), os.Getenv("DB_PASSWORD"), socketDir, os.Getenv("DB_INSTANCE"), os.Getenv("DB_NAME")))
 }
