@@ -47,3 +47,9 @@ terraform apply
 ```sh
 gcloud builds submit --tag gcr.io/agetaro-2517d/agetaro-kun
 ```
+
+### CloudSQLの初期化
+
+```sh
+# 後で更新する
+```
