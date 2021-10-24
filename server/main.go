@@ -53,7 +53,8 @@ func main() {
 		AllowOrigins: []string{
 			"https://agetaro-2517d.web.app/",
 		},
-		MaxAge: 24 * time.Hour,
+		AllowCredentials: true,
+		MaxAge:           24 * time.Hour,
 	}))
 
 	r.GET("/ping", func(c *gin.Context) {
