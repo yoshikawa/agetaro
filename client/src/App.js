@@ -1,7 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import axios from "axios";
 
 function App() {
+  const getMessage = async () => {
+    try {
+      const result = await axios.get('https://cloudrun-service-4td5gl2jwa-an.a.run.app/ping')
+      console.log(result);
+    } catch (error) {
+      console.log("error!!");
+    }
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +27,7 @@ function App() {
         >
           Learn React
         </a>
+        <button onClick={() => getMessage()}>get</button>
       </header>
     </div>
   );
