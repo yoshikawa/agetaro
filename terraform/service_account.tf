@@ -17,7 +17,7 @@ data "google_iam_policy" "invoker" {
 }
 
 resource "google_project_iam_member" "cloud_sql_connection" {
-  role = "roles/cloudsql.client"
+  role   = "roles/cloudsql.client"
   member = "serviceAccount:${google_service_account.run_invoker.email}"
 }
 
