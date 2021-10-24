@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -24,7 +25,7 @@ func main() {
 	}
 
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
 	}
 
 	r := gin.Default()
