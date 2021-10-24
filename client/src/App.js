@@ -1,39 +1,48 @@
-import logo from "./logo.svg";
+import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 import "./App.css";
-import axios from "axios";
+// import axios from "axios";
+import LoginBox from "./components/Login.jsx";
 
 function App() {
-  const getMessage = async () => {
-    try {
-      axios.defaults.headers.post["Content-Type"] =
-        "application/json;charset=utf-8";
-      axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
-      const result = await axios.get(
-        "https://cloudrun-service-4td5gl2jwa-an.a.run.app/ping"
-      );
-      console.log(result);
-    } catch (error) {
-      console.log("error!!");
-    }
-  };
+  // const getMessage = async () => {
+  //   try {
+  //     axios.defaults.headers.post["Content-Type"] =
+  //       "application/json;charset=utf-8";
+  //     axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
+  //     const result = await axios.get(
+  //       "https://cloudrun-service-4td5gl2jwa-an.a.run.app/ping"
+  //     );
+  //     console.log(result);
+  //   } catch (error) {
+  //     console.log("error!!");
+  //   }
+  // };
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <button onClick={() => getMessage()}>get</button>
-      </header>
+      <BrowserRouter>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/signup">Signup</Link>
+              </li>
+              <li>
+                <Link to="/login">Login</Link>
+              </li>
+            </ul>
+          </nav>
+
+          <Switch>
+            <Route path="/login">
+              <LoginBox />
+            </Route>
+          </Switch>
+        </div>
+      </BrowserRouter>
     </div>
   );
 }
